@@ -1,5 +1,11 @@
 # ProjectApp
 
+## Summary 
+**App name**: VideoTrain
+**Author**: Teunis van der Hofstad 
+
+VideoTrain is for everyone that doesn't know what to do while traveling by train. It can create a video playlist based on your interests and travel time. 
+
 ## Problem Statement 
 Everyday millions of people travel by train to go to work or school. 
 For a traveler this trip can be very boring. 
