@@ -45,11 +45,13 @@ The app will use two APIs:
 
 **Similar mobile apps**
 
-- The YouTube app assures you can make playlists of videos. These playlist aren't based on interests immediately and can't be made with a maximum playtime automatically. 
-- Spotify creates music playlists based on your favourite genres automatically. The app won't take in account your maximum time that is available. 
+There are several apps/websites that use the same principles, two examples: 
+
+- The YouTube app itself assures you can make playlists of videos. These playlist aren't based on interests immediately and can't be made with a maximum playtime automatically. 
+- The Spotify app creates music playlists based on your favourite genres automatically. The app won't take in account your maximum time that is available. 
 
 **Hardest parts** 
 
 The hardest parts of implementing the app are the following: 
-- Searching channels with current mood(s). This can be done with the YouTube search by keyword, but maybe this doesn't take into account synonyms. Maybe people have already created a list of YouTube channels by theme.  
-- ...
+- Searching channels based on current mood(s). This can be done with the YouTube search by keyword, but maybe this doesn't take into account synonyms. Hopefully people have already created a list of YouTube channels sorted by theme.  
+- Selecting videos from a channel keeping in mind the amount of time that is available and leaving room for variation in videos (videos from other channels). 
