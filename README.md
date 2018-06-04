@@ -1,8 +1,7 @@
 # ProjectApp
 
 ## Summary 
-**App name**: VideoTrain
-**Author**: Teunis van der Hofstad 
+**App name**: VideoTrain        **Author**: Teunis van der Hofstad 
 
 VideoTrain is for everyone that doesn't know what to do while traveling by train. It can create a video playlist based on your interests and travel time. 
 
@@ -24,13 +23,12 @@ This app will assure that you can watch a personalised YouTube playlist while tr
 - Create playlist 
 - Start/stop playlist 
 
+![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/jpg_Tekengebied%201%404x-100.jpg)
 
 **Optional functions**
 - Create account 
 - Add interests to account 
 - Store travel time of mostly used trips. For example home-university, home-work. 
-
-![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/jpg_Tekengebied%201%404x-100.jpg)
 
 ## Prerequisites 
 
