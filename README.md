@@ -1,11 +1,11 @@
 # ProjectApp
 
 ## Summary 
-**App name**: VideoTrain
+**App name**: VideoTraveler 
 
 **Author**: Teunis van der Hofstad 
 
-VideoTrain is for everyone that doesn't know what to do while traveling by train. It can create a video playlist based on your interests and travel time. 
+VideoTraveler is for everyone that doesn't know what to do while traveling by train. It can create a video playlist based on your interests and travel time. 
 
 ## Problem Statement 
 Everyday millions of people travel by train to go to work or school. 
@@ -14,8 +14,7 @@ The period of time spent in the train usually is too short for doing a lot of wo
 Most people reach out to their phones, but even then don't know what to do exactly: watching a part of a Netflix series or browsing through Facebook until reaching the destination? 
 
 ## Solution 
-This app will assure that you can watch a personalised YouTube playlist while traveling, adjusted to the time you are going to travel.  
-
+This app will assure that you can watch a personalised YouTube playlist while traveling, adjusted to the time you are going to travel. 
 
 **Functions for the MVP**
 - Put in time to travel
@@ -34,7 +33,7 @@ This app will assure that you can watch a personalised YouTube playlist while tr
 
 ## Prerequisites 
 
-**Data source**
+**Data sources**
 
 The app will use two APIs: 
 - The [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) will be used to search channels with a specific theme. It can also be used to search videos on these channels. 
