@@ -10,7 +10,7 @@ Most people reach out to their phones, but even then don't know what to do exact
 This app will assure that you can watch a personalised YouTube playlist while traveling, adjusted to the time you are going to travel.  
 
 
-**Functions for MVP**
+**Functions for the MVP**
 - Put in time to travel
 - Check boxes for video themes
 - Load possible YouTube channels 
