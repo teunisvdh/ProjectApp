@@ -43,4 +43,5 @@ The app will use two APIs:
 **Hardest parts** 
 
 The hardest parts of implementing the app are the following: 
-- 
+- ... 
+- ...
