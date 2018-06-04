@@ -41,3 +41,6 @@ The app will use two APIs:
 - Spotify creates music playlists based on your favourite genres automatically. The app won't take in account your maximum time that is available. 
 
 **Hardest parts** 
+
+The hardest parts of implementing the app are the following: 
+- 
