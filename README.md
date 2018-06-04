@@ -41,7 +41,7 @@ The app will use two APIs:
 - The [YouTube Android Player API](https://developers.google.com/youtube/android/player/) will be used to play the videos in the playlist. 
 
 **External components** 
-- For storing the interests/moods [Firebase](https://firebase.google.com/) will be used. Firebase can also be used for the optional/additional functions. It can store accounts and mostly used train journeys. 
+- For storing the interests/moods [Firebase](https://firebase.google.com/) will be used. Firebase can also be used for the optional/additional functions: storing accounts and mostly used train journeys. 
 
 **Similar mobile apps**
 
