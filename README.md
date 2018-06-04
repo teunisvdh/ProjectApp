@@ -30,7 +30,7 @@ This app will assure that you can watch a personalised YouTube playlist while tr
 **Optional functions**
 - Create account 
 - Add interests to account 
-- Store travel time of mostly used trips. For example home-university, home-work. 
+- Store travel time of mostly used train journeys. For example home-university, home-work. 
 
 ## Prerequisites 
 
@@ -41,7 +41,7 @@ The app will use two APIs:
 - The [YouTube Android Player API](https://developers.google.com/youtube/android/player/) will be used to play the videos in the playlist. 
 
 **External components** 
-- For storing the interests/moods [Firebase](https://firebase.google.com/) will be used. 
+- For storing the interests/moods [Firebase](https://firebase.google.com/) will be used. Firebase can also be used for the optional/additional functions. It can store accounts and mostly used train journeys. 
 
 **Similar mobile apps**
 
