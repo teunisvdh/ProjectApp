@@ -24,3 +24,16 @@ This app will assure that you can watch a personalised YouTube playlist while tr
 - Add interests to account 
 
 ![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/jpg_Tekengebied%201%404x-100.jpg)
+
+## Prerequisites 
+
+**Data source**
+The app will use two APIs: 
+- [YouTube Data API](https://developers.google.com/youtube/v3/getting-started)
+- [YouTube Android Player API](https://developers.google.com/youtube/android/player/) 
+
+**External components** 
+
+**Similar mobile apps**
+
+**Hardest parts** 
