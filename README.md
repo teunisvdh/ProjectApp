@@ -28,12 +28,16 @@ This app will assure that you can watch a personalised YouTube playlist while tr
 ## Prerequisites 
 
 **Data source**
+
 The app will use two APIs: 
-- [YouTube Data API](https://developers.google.com/youtube/v3/getting-started)
-- [YouTube Android Player API](https://developers.google.com/youtube/android/player/) 
+- The [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) will be used to search channels with a specific theme. It can also be used to search videos on these channels. 
+- The [YouTube Android Player API](https://developers.google.com/youtube/android/player/) will be used to play the videos in the playlist. 
 
 **External components** 
 
 **Similar mobile apps**
+
+- The YouTube app assures you can make playlists of videos. These playlist aren't based on interests immediately and can't be made with a maximum playtime automatically. 
+- Spotify creates music playlists based on your favourite genres automatically. The app won't take in account your maximum time that is available. 
 
 **Hardest parts** 
