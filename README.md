@@ -1,7 +1,9 @@
 # ProjectApp
 
 ## Summary 
-**App name**: VideoTrain        **Author**: Teunis van der Hofstad 
+**App name**: VideoTrain
+
+**Author**: Teunis van der Hofstad 
 
 VideoTrain is for everyone that doesn't know what to do while traveling by train. It can create a video playlist based on your interests and travel time. 
 
@@ -49,5 +51,5 @@ The app will use two APIs:
 **Hardest parts** 
 
 The hardest parts of implementing the app are the following: 
-- ... 
+- Searching channels with current mood(s). This can be done with the YouTube search by keyword, but maybe this doesn't take into account synonyms. Maybe people have already created a list of YouTube channels by theme.  
 - ...
