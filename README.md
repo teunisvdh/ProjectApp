@@ -20,3 +20,5 @@ This app will assure that you can watch a personalised YouTube playlist while tr
 **Optional functions**
 - Create account 
 - Add interests to account 
+
+![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/jpg_Tekengebied%201%404x-100.jpg)
