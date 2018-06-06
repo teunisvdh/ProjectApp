@@ -27,7 +27,5 @@ While the MVP won't make use of a database the full app will. The database will 
 [Firebase](https://firebase.google.com/) will contain three tables:
 
 - UserAccounts: id, email (Google account) and hashed password
-
 - Moods: id, name 
-
 - Journeys: id, destination1, destination2, travelTime 
