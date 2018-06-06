@@ -9,3 +9,9 @@
 ## Diagram
 
 ![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/Diagram%20app.jpg)
+
+## Data sources/APIs 
+
+The app will make use of two APIs: 
+- The [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) will be used to search channels with a specific theme. It will also be used for searching videos on these channels. It could be used for making a playlist (possibility).  
+- The [YouTube Android Player API](https://developers.google.com/youtube/android/player/) will be used to play the videos in the playlist.
