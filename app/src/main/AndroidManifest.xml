@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MoodActivity" />
-        <activity android:name=".RecommendActivity"></activity>
+        <activity android:name=".RecommendActivity" />
+        <activity android:name=".ShowplaylistActivity" />
+        <activity android:name=".PlaylistActivity"></activity>
     </application>
 
 </manifest>
