@@ -22,7 +22,7 @@ public class MoodActivity extends AppCompatActivity {
     public void moodsGiven(View view) {
         // or ChannelRequest instead of RecommendActivity????
         Intent intent = new Intent(MoodActivity.this, RecommendActivity.class);
-//        intent.putExtra("timeInput", minutesInt);
+        intent.putExtra("timeInput", minutesInt);
         startActivity(intent);
     }
 }
