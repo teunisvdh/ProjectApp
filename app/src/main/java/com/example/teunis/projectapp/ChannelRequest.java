@@ -36,8 +36,8 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
     public void getChannels(Callback activity) {
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, this, this);
-//        queue.add(jsonObjectRequest);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, this, this);
+        queue.add(jsonObjectRequest);
 
     }
 }
