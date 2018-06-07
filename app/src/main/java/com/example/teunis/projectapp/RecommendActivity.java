@@ -22,7 +22,7 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
 
     @Override
     public void gotChannels(ArrayList<String> channels) {
-
+        Log.d("channelinfo", "channelsinfo:" + channels);
     }
 
     @Override

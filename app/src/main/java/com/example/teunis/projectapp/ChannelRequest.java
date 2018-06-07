@@ -41,11 +41,13 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
         Log.d("onResponse", "onResponse");
         ArrayList<String> channels = new ArrayList<>();
         try {
-            JSONArray channelArray = response.getJSONArray("channels");
+            JSONArray channelArray = response.getJSONArray("thumbnail_url");
+            Log.d("JSONArray", "JSONArray: " + channelArray);
             for (int i = 0; i < channelArray.length(); i++) {
                 channels.add(channelArray.getString(i));
             }
         } catch (JSONException e) {
+            Log.d("JSONException", "JSONException");
         }
         activity.gotChannels(channels);
     }
@@ -54,7 +56,7 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
         Log.d("getChannels", "getChannels");
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.youtube.com/user/gierigegasten", null, this, this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=eESLfJgYYHE&format=json", null, this, this);
         queue.add(jsonObjectRequest);
     }
 }
