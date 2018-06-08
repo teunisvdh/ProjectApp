@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,8 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
     @Override
     public void gotChannels(ArrayList<String> channels) {
         Log.d("channelinfo", "channelsinfo:" + channels);
+        TextView channelText = findViewById(R.id.channelText);
+        channelText.setText("Channels: " + (channels));
     }
 
     @Override

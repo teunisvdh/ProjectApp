@@ -38,14 +38,17 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
 
     @Override
     public void onResponse(JSONObject response) {
-        Log.d("onResponse", "onResponse");
+        Log.d("onResponse", "onResponse" + response);
         ArrayList<String> channels = new ArrayList<>();
         try {
-            JSONArray channelArray = response.getJSONArray("thumbnail_url");
-            Log.d("JSONArray", "JSONArray: " + channelArray);
-            for (int i = 0; i < channelArray.length(); i++) {
-                channels.add(channelArray.getString(i));
-            }
+            String user = response.getString("author_name");
+            Log.d("try", user);
+            channels.add(user);
+//            JSONArray channelArray = response.getJSONArray("thumbnail_url");
+//            Log.d("JSONArray", "JSONArray: " + channelArray);
+//            for (int i = 0; i < channelArray.length(); i++) {
+//                channels.add(channelArray.getString(i));
+//            }
         } catch (JSONException e) {
             Log.d("JSONException", "JSONException");
         }

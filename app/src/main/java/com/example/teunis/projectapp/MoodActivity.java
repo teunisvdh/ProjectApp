@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class MoodActivity extends AppCompatActivity {
@@ -17,6 +18,10 @@ public class MoodActivity extends AppCompatActivity {
         int minutes = (Integer) intent.getSerializableExtra("timeInput");
         TextView minutesMood = findViewById(R.id.minutesMood);
         minutesMood.setText("Minutes available: " + minutes);
+    }
+
+    public void checkedBox(CheckBox checkBox) {
+
     }
 
     public void moodsGiven(View view) {
