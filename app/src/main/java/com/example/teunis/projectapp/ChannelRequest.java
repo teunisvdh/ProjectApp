@@ -52,9 +52,15 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
             Log.d("JSONArray", "JSONArray: " + channelArray);
 
             for (int i = 0; i < channelArray.length(); i++) {
+                Log.d("loop begin", "begin loop");
                 JSONObject thisChannel = channelArray.getJSONObject(i);
-                String name = thisChannel.getString("channelTitle");
+                JSONObject snippet = thisChannel.getJSONObject("snippet");
+//                Log.d("snippet", "snippet" + snippet);
+                Log.d("loop second", "begin second" + snippet);
+                String name = snippet.getString("channelTitle");
+                Log.d("loop third", "begin third");
                 channels.add(name);
+                Log.d("channels", "channels"+ channels);
             }
         } catch (JSONException e) {
             Log.d("JSONException", "JSONException");
