@@ -13,6 +13,8 @@ public class TimeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // SHA1: EA:C8:7C:59:22:F2:F1:71:E2:26:5A:AE:A7:78:8A:A9:86:EC:6C:25
+        // Client ID 891303747235-fcc150kknmv0e6htv7ea7faq59p7re14.apps.googleusercontent.com
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
     }
@@ -39,3 +41,6 @@ public class TimeActivity extends AppCompatActivity {
         }
     }
 }
+
+
+

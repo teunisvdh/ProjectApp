@@ -7,7 +7,12 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MoodActivity extends AppCompatActivity {
+
+    ArrayList<String> selectedMoods = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,14 +25,20 @@ public class MoodActivity extends AppCompatActivity {
         minutesMood.setText("Minutes available: " + minutes);
     }
 
-    public void checkedBox(CheckBox checkBox) {
-
+    public void moodClicked(View view) {
+        boolean check = ((CheckBox) view).isChecked();
+        String text = (String) ((CheckBox) view).getText();
+        if (check) {
+            selectedMoods.add(text);
+        }
+        else if (selectedMoods.contains(text)){
+            selectedMoods.remove(text);
+        }
     }
 
     public void moodsGiven(View view) {
-        // or ChannelRequest instead of RecommendActivity????
         Intent intent = new Intent(MoodActivity.this, RecommendActivity.class);
-//        intent.putExtra("timeInput", minutesInt);
+        intent.putStringArrayListExtra("moods", selectedMoods);
         startActivity(intent);
     }
 }
