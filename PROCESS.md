@@ -14,4 +14,12 @@ Managed Gierige Gasten JSON
 
 # day 6 (11-6)
 MoodActivity gives selected moods to RecommendActivity
-YouTube API channels,/
+
+YouTube API channels
+
+# day 7 (12-6)
+Channels retrieved for moods
+
+Adapter: channels shown (max 5)
+
+Video IDs for channels

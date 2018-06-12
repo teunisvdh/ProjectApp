@@ -6,12 +6,17 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RecommendActivity extends AppCompatActivity implements ChannelRequest.Callback {
+
+    ArrayList<ChannelItem> finalChannels = new ArrayList<ChannelItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,21 +24,47 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
         setContentView(R.layout.activity_recommend);
 
         Log.d("RecommendActivity", "RecommendActivity");
-        ChannelRequest whatChannel = new ChannelRequest(this);
-        whatChannel.getChannels(this);
 
         Intent intent = getIntent();
         ArrayList moods = (ArrayList) intent.getSerializableExtra("moods");
         String moodsString = TextUtils.join(", ", moods);
         TextView test = findViewById(R.id.testView);
         test.setText("Moods: " + moodsString);
+
+        ChannelRequest whatChannel = new ChannelRequest(this);
+        whatChannel.getChannels(this, moods);
+
+//        ListView channelList = findViewById(R.id.channelList);
+//        channelList.setOnItemClickListener(new RecommendActivity.listItemClickListener());
     }
 
     @Override
-    public void gotChannels(ArrayList<String> channels) {
-        Log.d("channelinfo", "channelsinfo:" + channels);
-        TextView channelText = findViewById(R.id.channelText);
-        channelText.setText("Channels: " + (channels));
+    public void gotChannels(ArrayList<ChannelItem> channels) {
+//        Log.d("channelinfo", "channelsinfo:" + channels);
+//        String channelString = TextUtils.join(", ", channels);
+//        TextView channelText = findViewById(R.id.channelText);
+//        channelText.setText("Channels: " + channelString);
+        finalChannels = new ArrayList<ChannelItem>();
+        if (channels.size() > 5) {
+            Log.d("if loop", "channels size bigger than five");
+            for (int i = 0; i < 5; i++) {
+                Random random = new Random();
+                int index = random.nextInt(channels.size());
+                ChannelItem thisChannel = channels.get(index);
+                channels.remove(thisChannel);
+                finalChannels.add(thisChannel);
+            }
+            Log.d("finalChannels", "finalChannels" + finalChannels);
+            ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, finalChannels);
+            ListView listChannel = findViewById(R.id.channelList);
+            listChannel.setAdapter(channelAdapter);
+        }
+        else {
+            Log.d("else", "else");
+            ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, channels);
+            ListView listChannel = findViewById(R.id.channelList);
+            listChannel.setAdapter(channelAdapter);
+        }
     }
 
     @Override
@@ -42,8 +73,25 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
         toast.show();
     }
 
+//    public class listItemClickListener implements AdapterView.OnItemClickListener {
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            Log.d("channelItems", "channelItems" + finalChannels);
+//            ChannelItem deletedChannel = (ChannelItem) parent.getItemAtPosition(position);
+//            if (finalChannels.contains(deletedChannel)) {
+//                Log.d("Contains", "CONTAINS CHANNEL");
+//                finalChannels.remove(deletedChannel);
+//            }
+//            else {
+//                Log.d("Contains", "DOESN'T CONTAIN CHANNEL");
+//                finalChannels.add(deletedChannel);
+//            }
+//        }
+//    }
+
     public void continueRecommend(View view) {
         Intent intent = new Intent(RecommendActivity.this, ShowplaylistActivity.class);
+        intent.putExtra("finalChannels", finalChannels);
         startActivity(intent);
     }
 }
