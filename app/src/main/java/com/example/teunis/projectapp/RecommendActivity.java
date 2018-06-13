@@ -46,24 +46,30 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
 //        channelText.setText("Channels: " + channelString);
         finalChannels = new ArrayList<ChannelItem>();
         if (channels.size() > 5) {
-            Log.d("if loop", "channels size bigger than five");
+            Log.d("if loop", "channels size bigger than five" + channels);
             for (int i = 0; i < 5; i++) {
                 Random random = new Random();
                 int index = random.nextInt(channels.size());
                 ChannelItem thisChannel = channels.get(index);
                 channels.remove(thisChannel);
                 finalChannels.add(thisChannel);
+                ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, finalChannels);
+                ListView listChannel = findViewById(R.id.channelList);
+                listChannel.setAdapter(channelAdapter);
             }
-            Log.d("finalChannels", "finalChannels" + finalChannels);
-            ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, finalChannels);
-            ListView listChannel = findViewById(R.id.channelList);
-            listChannel.setAdapter(channelAdapter);
         }
         else {
-            Log.d("else", "else");
-            ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, channels);
-            ListView listChannel = findViewById(R.id.channelList);
-            listChannel.setAdapter(channelAdapter);
+            Log.d("else", "else" + channels);
+            for (int i = 0; i < 5; i++) {
+                ChannelItem thisChannel = channels.get(i);
+                finalChannels.add(thisChannel);
+                ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, finalChannels);
+                ListView listChannel = findViewById(R.id.channelList);
+                listChannel.setAdapter(channelAdapter);
+            }
+//        ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, finalChannels);
+//        ListView listChannel = findViewById(R.id.channelList);
+//        listChannel.setAdapter(channelAdapter);
         }
     }
 
