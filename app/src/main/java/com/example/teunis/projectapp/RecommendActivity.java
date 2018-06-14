@@ -17,6 +17,7 @@ import java.util.Random;
 public class RecommendActivity extends AppCompatActivity implements ChannelRequest.Callback {
 
     ArrayList<ChannelItem> finalChannels = new ArrayList<ChannelItem>();
+    float minutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
         Log.d("RecommendActivity", "RecommendActivity");
 
         Intent intent = getIntent();
+        minutes = (float) intent.getSerializableExtra("timeInput");
         ArrayList moods = (ArrayList) intent.getSerializableExtra("moods");
         String moodsString = TextUtils.join(", ", moods);
         TextView test = findViewById(R.id.testView);
@@ -98,6 +100,7 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
     public void continueRecommend(View view) {
         Intent intent = new Intent(RecommendActivity.this, ShowplaylistActivity.class);
         intent.putExtra("finalChannels", finalChannels);
+        intent.putExtra("timeInput", minutes);
         startActivity(intent);
     }
 }

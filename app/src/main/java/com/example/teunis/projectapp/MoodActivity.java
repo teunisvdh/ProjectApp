@@ -13,6 +13,7 @@ import java.util.List;
 public class MoodActivity extends AppCompatActivity {
 
     ArrayList<String> selectedMoods = new ArrayList<String>();
+    float minutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class MoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mood);
 
         Intent intent = getIntent();
-        int minutes = (Integer) intent.getSerializableExtra("timeInput");
+        minutes = (float) intent.getSerializableExtra("timeInput");
         TextView minutesMood = findViewById(R.id.minutesMood);
         minutesMood.setText("Minutes available: " + minutes);
     }
@@ -39,6 +40,7 @@ public class MoodActivity extends AppCompatActivity {
     public void moodsGiven(View view) {
         Intent intent = new Intent(MoodActivity.this, RecommendActivity.class);
         intent.putStringArrayListExtra("moods", selectedMoods);
+        intent.putExtra("timeInput", minutes);
         startActivity(intent);
     }
 }

@@ -17,10 +17,11 @@ public class TimeActivity extends AppCompatActivity {
         // Client ID 891303747235-fcc150kknmv0e6htv7ea7faq59p7re14.apps.googleusercontent.com
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
+        Log.d("TimeActivity", "TimeActivity");
     }
 
     public void minutesFilled(View view) {
-        int minutesInt = 0;
+        float minutesFloat = 0;
         TextView time = findViewById(R.id.editTime);
         CharSequence minutes = time.getText();
         String minutesString = minutes.toString();
@@ -29,10 +30,10 @@ public class TimeActivity extends AppCompatActivity {
             toast.show();
         }
         else {
-            minutesInt = Integer.parseInt(minutesString);
-            if (minutesInt > 0) {
+            minutesFloat = Float.parseFloat(minutesString);
+            if (minutesFloat > 0) {
                 Intent intent = new Intent(TimeActivity.this, MoodActivity.class);
-                intent.putExtra("timeInput", minutesInt);
+                intent.putExtra("timeInput", minutesFloat);
                 startActivity(intent);
             } else {
                 Toast toast = Toast.makeText(this, "Time input must be higher than 0 minutes.", Toast.LENGTH_SHORT);

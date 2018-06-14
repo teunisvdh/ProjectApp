@@ -79,7 +79,7 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
 
         for (int i = 0; i < moods.size(); i++) {
             String mood = moods.get(i).toString();
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=relevance&q=" + mood + "&type=channel&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=relevance&q=" + mood + "&relevanceLanguage=en&type=channel&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
             queue.add(jsonObjectRequest);
         }
 
