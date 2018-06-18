@@ -22,8 +22,9 @@ public class MoodActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         minutes = (float) intent.getSerializableExtra("timeInput");
+        String minutesString = String.format("%.00f", minutes);
         TextView minutesMood = findViewById(R.id.minutesMood);
-        minutesMood.setText("Minutes available: " + minutes);
+        minutesMood.setText("Minutes available: " + minutesString);
     }
 
     public void moodClicked(View view) {

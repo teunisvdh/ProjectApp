@@ -27,9 +27,16 @@ Video IDs for channels
 # day 8 (13-6)
 From IDs to snippet and contentDetails. Managed Time.
 
-#day 9 (14-6)
+# day 9 (14-6)
 YouTube API isn't good with time, no standard structure.
 Used requests for videos with length max 20 minutes.
 
 Make a playlist with a maximum time stamp. Adapter for the playlist.
 Crashes sometimes. Reason not known.
+
+# day 10 (15-6)
+
+# day 11 (18-6)
+YouTube Android Player API integrated
+Videos in playlist can be viewed
+Better time selection
