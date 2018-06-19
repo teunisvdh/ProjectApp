@@ -35,8 +35,13 @@ Make a playlist with a maximum time stamp. Adapter for the playlist.
 Crashes sometimes. Reason not known.
 
 # day 10 (15-6)
+presentation
 
 # day 11 (18-6)
 YouTube Android Player API integrated
 Videos in playlist can be viewed
 Better time selection
+
+# day 12 (19-6)
+Design app
+Android Studio Crash

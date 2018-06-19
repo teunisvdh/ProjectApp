@@ -18,10 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MoodActivity" />
-        <activity android:name=".RecommendActivity" />
-        <activity android:name=".ShowplaylistActivity" />
-        <activity android:name=".PlaylistActivity"></activity>
+        <activity android:name=".MoodActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RecommendActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ShowplaylistActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PlaylistActivity"
+            android:configChanges="orientation"/>
     </application>
 
 </manifest>
