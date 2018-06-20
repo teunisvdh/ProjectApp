@@ -24,8 +24,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ShowplaylistActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".PlaylistActivity"
-            android:configChanges="orientation"/>
+        <activity android:name=".PlaylistActivity"/>
     </application>
 
 </manifest>
