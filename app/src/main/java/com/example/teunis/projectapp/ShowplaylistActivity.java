@@ -132,8 +132,18 @@ public class ShowplaylistActivity extends AppCompatActivity implements VideoRequ
             channelsOfVideos.add(videoChannel);
         }
         TextView timeTestView = findViewById(R.id.timeTestView);
+        float durationSeconds = totalDuration % 1 * 60;
+        String secondsString = String.format("%.00f", durationSeconds);
+        if (secondsString.length() == 1) {
+            secondsString = "0" + secondsString;
+        }
+        float durationMinutes = totalDuration - (totalDuration % 1);
+        String minutesString = String.format("%.00f", durationMinutes);
+        if (minutesString.length() == 1) {
+            minutesString = "0" + minutesString;
+        }
 //        timeTestView.setText("Total time: " + totalDuration + minutesOfVideos + "Channels: " + channelsOfVideos);
-        timeTestView.setText("Total time: " + totalDuration);
+        timeTestView.setText("Total time:   " + minutesString + "m " + secondsString + "s");
 
 
         VideoAdapter videoAdapter = new VideoAdapter(this, R.layout.item_channel, finalPlaylist);

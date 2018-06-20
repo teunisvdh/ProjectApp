@@ -41,6 +41,11 @@ public class TimeActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void profileClicked(View view) {
+        Intent intent = new Intent(TimeActivity.this, ProfileActivity.class);
+        startActivity(intent);
+    }
 }
 
 

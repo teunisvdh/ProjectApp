@@ -60,9 +60,8 @@ public class PlaylistActivity extends YouTubeBaseActivity {
                     Log.d("videos loaded", "videos loaded");
                     youTubePlayer.loadVideos(finalIds);
                     first = false;
-                    Log.d("First in if", "First: " + first);
-//                    youTubePlayerCopy = youTubePlayer;
                 }
+                youTubePlayer.play();
 
                 if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     youTubePlayer.setFullscreen(true);
@@ -78,13 +77,6 @@ public class PlaylistActivity extends YouTubeBaseActivity {
         youtubeView.initialize("AIzaSyAI9dTBMA_2el8NlVSVjCLECXEoeyhdhNc", initListener);
 
     }
-
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-////        youTubePlayerCopy.setFullscreen(true);
-//        Log.d("CHANGED", "CHANGED ORIENTATION");
-//    }
 
     public void stopPlaylist(View view) {
         Log.d("stopPlayList", "STOP STOP STOP STOP STOP STOP STOP STOP STOP");

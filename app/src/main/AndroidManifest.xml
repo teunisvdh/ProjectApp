@@ -11,20 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TimeActivity">
+        <activity android:name=".TimeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MoodActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".RecommendActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ShowplaylistActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PlaylistActivity"/>
+        <activity
+            android:name=".MoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecommendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowplaylistActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".PlaylistActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

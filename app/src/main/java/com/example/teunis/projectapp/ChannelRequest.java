@@ -82,32 +82,5 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=relevance&q=" + mood + "&relevanceLanguage=en&type=channel&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
             queue.add(jsonObjectRequest);
         }
-
-
-//        try {
-//            HashMap<String, String> parameters = new HashMap<>();
-//            parameters.put("part", "snippet");
-//            parameters.put("maxResults", "25");
-//            parameters.put("q", "surfing");
-//            parameters.put("type", "");
-//
-//            YouTube.Search.List searchListByKeywordRequest = youtube.search().list(parameters.get("part").toString());
-//            if (parameters.containsKey("maxResults")) {
-//                searchListByKeywordRequest.setMaxResults(Long.parseLong(parameters.get("maxResults").toString()));
-//            }
-//
-//            if (parameters.containsKey("q") && parameters.get("q") != "") {
-//                searchListByKeywordRequest.setQ(parameters.get("q").toString());
-//            }
-//
-//            if (parameters.containsKey("type") && parameters.get("type") != "") {
-//                searchListByKeywordRequest.setType(parameters.get("type").toString());
-//            }
-//
-//            SearchListResponse response = searchListByKeywordRequest.execute();
-//            System.out.println(response);
-//        } catch (IOException e) {
-//            Log.d("IOException", "IOException");
-//        }
     }
 }
