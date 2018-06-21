@@ -36,9 +36,6 @@ public class ShowplaylistActivity extends AppCompatActivity implements VideoRequ
             String name = thisChannel.name;
             channelNames.add(name);
         }
-        String channelsString = TextUtils.join(", ", channelNames);
-        TextView finalChannels = findViewById(R.id.channelView);
-        finalChannels.setText("Channels: " + channelsString);
 
         VideoRequest whatVideo = new VideoRequest(this);
         whatVideo.getVideos(this, channels);
