@@ -12,12 +12,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
     ArrayList<String> moods;
+    Map<String, Integer> mapMoments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +31,28 @@ public class ProfileActivity extends AppCompatActivity {
 //        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         SharedPreferences preferences = getSharedPreferences("sharedMoods", Context.MODE_PRIVATE);
-        String stringMoods = preferences.getString("moods", "No moods defined.");
-        if (stringMoods != "No moods defined.") {
+        String stringMoods = preferences.getString("moods", "");
+        if (!stringMoods.equals("")) {
             moods = new ArrayList<>(Arrays.asList(stringMoods.split(", ")));
         }
         else {
             moods = new ArrayList<>();
+        }
+
+        SharedPreferences preferencesMoments = getSharedPreferences("sharedMoments", Context.MODE_PRIVATE);
+        String stringMoments = preferencesMoments.getString("moments", "");
+        if (!stringMoments.equals("")) {
+            mapMoments = new HashMap<>();
+            ArrayList<String> listMoments = new ArrayList<>(Arrays.asList(stringMoments.split(", ")));
+            for (int i = 0; i < listMoments.size(); i++) {
+                String moment = listMoments.get(i);
+                String[] splitted = moment.split("=");
+                Integer duration = Integer.parseInt(splitted[1]);
+                mapMoments.put(splitted[0], duration);
+            }
+        }
+        else {
+            mapMoments = new HashMap<>();
         }
 //        GlobalVariables global = GlobalVariables.getInstance();
 //        moods = global.getMoods();
@@ -46,7 +66,21 @@ public class ProfileActivity extends AppCompatActivity {
         TextView moodsText = findViewById(R.id.moodsView);
 //        String moodsString = TextUtils.join(", ", moods);
 //        moodsText.setText(moodsString);
-        moodsText.setText(stringMoods);
+        if (stringMoods.equals("")) {
+            Log.d("PROFILEACTIVITY", "ZIT IN DE IF" + stringMoods);
+            moodsText.setText("No moods defined.");
+        }
+        else {
+            Log.d("PROFILEACTIVITY", "ZIT IN DE ELSE" + stringMoods);
+            moodsText.setText(stringMoods);
+        }
+        TextView momentsText = findViewById(R.id.momentsView);
+        if (stringMoments.equals("")) {
+            momentsText.setText("No moments defined.");
+        }
+        else {
+            momentsText.setText(stringMoments);
+        }
     }
 
 //    @Override
@@ -88,22 +122,29 @@ public class ProfileActivity extends AppCompatActivity {
         Log.d("addDelete", "moods: " + moods);
         if (moods.contains(thisMood)) {
             moods.remove(thisMood);
-            if (moods.size() == 0) {
-                moods.add("No moods defined.");
-            }
+//            if (moods.size() == 0) {
+//                moods.add("No moods defined.");
+//            }
             view.setBackgroundColor(0xFFFF0000);
         }
-        else if (moods.contains("No moods defined.")){
-            moods.remove("No moods defined.");
-            moods.add(thisMood);
-        }
+//        else if (moods.contains("No moods defined.")){
+//            moods.remove("No moods defined.");
+//            moods.add(thisMood);
+//            view.setBackgroundColor(0xFF00FF00);
+//        }
         else {
             moods.add(thisMood);
+            view.setBackgroundColor(0xFF00FF00);
         }
         Log.d("addDelete", "moods after: " + moods);
         TextView moodsText = findViewById(R.id.moodsView);
         String moodsString = TextUtils.join(", ", moods);
-        moodsText.setText(moodsString);
+        if (moodsString.equals("")) {
+            moodsText.setText("No moods defined.");
+        }
+        else {
+            moodsText.setText(moodsString);
+        }
         SharedPreferences.Editor editor = getSharedPreferences("sharedMoods", MODE_PRIVATE).edit();
         editor.putString("moods", moodsString);
         editor.apply();
@@ -114,8 +155,59 @@ public class ProfileActivity extends AppCompatActivity {
             public void run() {
                 view.setBackgroundColor(0xFFFFFFFF);
             }
-        }, 250);
+        }, 150);
 //        GlobalVariables global = GlobalVariables.getInstance();
 //        global.setMoods(moods);
+    }
+
+    public void addDeleteMoment(final View view) {
+        EditText momentAddDelete = findViewById(R.id.editMoment);
+        EditText momentTimeAddDelete = findViewById(R.id.editMomentTime);
+        String thisMoment = momentAddDelete.getText().toString();
+        String timeMomentString = momentTimeAddDelete.getText().toString();
+        Integer timeMoment = 0;
+        if (!timeMomentString.equals("")) {
+            timeMoment = Integer.parseInt(timeMomentString);
+        }
+//        Map<String, Integer> mapMoments = new HashMap<>();
+//        Log.d("addDelete", "moods: " + moods);
+        if (mapMoments.containsKey(thisMoment)) {
+            mapMoments.remove(thisMoment);
+//            if (mapMoments.size() == 0) {
+//                mapMoments.put("No moments defined.", 0);
+//            }
+            view.setBackgroundColor(0xFFFF0000);
+        } else if (mapMoments.containsKey(thisMoment)) {
+            mapMoments.remove(thisMoment);
+            mapMoments.put(thisMoment, timeMoment);
+            view.setBackgroundColor(0xFF00FF00);
+        } else {
+            mapMoments.put(thisMoment, timeMoment);
+            view.setBackgroundColor(0xFF00FF00);
+        }
+//        Log.d("addDelete", "moods after: " + moods);
+        TextView momentsText = findViewById(R.id.momentsView);
+//        String momentsString = TextUtils.join(", ", moods);
+        String momentsString2 = mapMoments.toString();
+        String momentsString1 = momentsString2.replace("{", "");
+        String momentsString = momentsString1.replace("}", "");
+        if (momentsString.equals("")) {
+            momentsText.setText("No moments defined.");
+        }
+        else {
+            momentsText.setText(momentsString);
+        }
+        SharedPreferences.Editor editor = getSharedPreferences("sharedMoments", MODE_PRIVATE).edit();
+        editor.putString("moments", momentsString);
+        editor.apply();
+        momentAddDelete.setText("");
+        momentTimeAddDelete.setText("");
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.setBackgroundColor(0xFFFFFFFF);
+            }
+        }, 150);
     }
 }

@@ -30,7 +30,7 @@ public class MoodActivity extends AppCompatActivity {
         String minutesString = String.format("%.00f", minutes);
 
         SharedPreferences preferences = getSharedPreferences("sharedMoods", Context.MODE_PRIVATE);
-        String stringMoods = preferences.getString("moods", "No moods defined.");
+        String stringMoods = preferences.getString("moods", "");
         List<String> listMoods = new ArrayList<>(Arrays.asList(stringMoods.split(", ")));
 
         TextView minutesMood = findViewById(R.id.minutesMood);
@@ -38,24 +38,31 @@ public class MoodActivity extends AppCompatActivity {
 
         LinearLayout allMoods = (LinearLayout) findViewById(R.id.linearLayout);
 
-        for (int i = 0; i < listMoods.size(); i++) {
-            String thisMood = listMoods.get(i);
-            CheckBox check = new CheckBox(this);
-            check.setText(thisMood);
-            check.setTextSize(18);
-            check.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    boolean check = ((CheckBox) view).isChecked();
-                    String text = (String) ((CheckBox) view).getText();
-                    if (check) {
-                        selectedMoods.add(text);
-                    } else if (selectedMoods.contains(text)) {
-                        selectedMoods.remove(text);
+        if (stringMoods.equals("")) {
+            TextView emptyText = new TextView(this);
+            emptyText.setText("No moods defined yet");
+            allMoods.addView(emptyText);
+        }
+        else {
+            for (int i = 0; i < listMoods.size(); i++) {
+                String thisMood = listMoods.get(i);
+                CheckBox check = new CheckBox(this);
+                check.setText(thisMood);
+                check.setTextSize(18);
+                check.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        boolean check = ((CheckBox) view).isChecked();
+                        String text = (String) ((CheckBox) view).getText();
+                        if (check) {
+                            selectedMoods.add(text);
+                        } else if (selectedMoods.contains(text)) {
+                            selectedMoods.remove(text);
+                        }
                     }
-                }
-            });
-            allMoods.addView(check);
+                });
+                allMoods.addView(check);
+            }
         }
     }
 

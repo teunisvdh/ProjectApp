@@ -80,17 +80,17 @@
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/momentsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="No moments yet."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editMoment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -98,31 +98,33 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/editMomentTime"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/momentsView" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editMomentTime"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/addDeleteMood2"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintEnd_toStartOf="@+id/addDeleteMoment"
+        app:layout_constraintTop_toBottomOf="@+id/momentsView" />
 
     <Button
-        android:id="@+id/addDeleteMood2"
+        android:id="@+id/addDeleteMoment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="8dp"
         android:background="#ffffff"
+        android:onClick="addDeleteMoment"
         android:text="Add/Delete"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/editText3"
+        app:layout_constraintBottom_toBottomOf="@+id/editMomentTime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText3" />
+        app:layout_constraintTop_toTopOf="@+id/editMomentTime" />
+
 </android.support.constraint.ConstraintLayout>
