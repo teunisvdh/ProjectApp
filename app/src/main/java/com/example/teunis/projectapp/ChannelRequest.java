@@ -24,6 +24,8 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
     Context context;
     Callback activity;
     ArrayList<ChannelItem> channels = new ArrayList<>();
+    int moodsSize;
+    int count = 0;
 
     public ChannelRequest(Context context) {
         this.context = context;
@@ -69,15 +71,20 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
         } catch (JSONException e) {
             Log.d("JSONException", "JSONException");
         }
-        activity.gotChannels(channels);
+        count = count + 1;
+        if (count == moodsSize) {
+            Log.d("CHANNELS gotChannels is starting", "blablabla");
+            activity.gotChannels(channels);
+        }
     }
 
     public void getChannels(Callback activity, ArrayList moods) {
         Log.d("getChannels", "getChannels");
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
+        moodsSize = moods.size();
 
-        for (int i = 0; i < moods.size(); i++) {
+        for (int i = 0; i < moodsSize; i++) {
             String mood = moods.get(i).toString();
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=relevance&q=" + mood + "&relevanceLanguage=en&type=channel&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
             queue.add(jsonObjectRequest);

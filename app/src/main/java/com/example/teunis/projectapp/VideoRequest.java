@@ -24,6 +24,8 @@ public class VideoRequest implements Response.Listener<JSONObject>, Response.Err
     Context context;
     Callback activity;
     ArrayList<String> videos = new ArrayList<>();
+    int finalChannelsSize;
+    int count = 0;
 
     public VideoRequest(Context context) {
         this.context = context;
@@ -43,6 +45,7 @@ public class VideoRequest implements Response.Listener<JSONObject>, Response.Err
 
     @Override
     public void onResponse(JSONObject response) {
+        Log.d("ONRESPONSE VIDEOREQUEST", "ONRESPONSE VIDEOREQUEST 123");
         Log.d("onResponse", "onResponse" + response);
 //        ArrayList<String> channels = new ArrayList<>();
         try {
@@ -61,15 +64,20 @@ public class VideoRequest implements Response.Listener<JSONObject>, Response.Err
             Log.d("JSONException", "JSONException");
         }
         Log.d("gotVideos in request:", "gotVideos" + videos);
-        activity.gotVideos(videos);
+
+        count = count + 1;
+        if (count == finalChannelsSize) {
+            activity.gotVideos(videos);
+        }
     }
 
     public void getVideos(Callback activity, ArrayList finalChannels) {
         Log.d("getVideos", "getVideos");
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
+        finalChannelsSize = finalChannels.size();
 
-        for (int i = 0; i < finalChannels.size(); i++) {
+        for (int i = 0; i < finalChannelsSize; i++) {
             ChannelItem channel = (ChannelItem) finalChannels.get(i);
             String channelId = channel.url;
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + channelId + "&maxResults=10&order=viewCount&type=video&videoDuration=medium&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);

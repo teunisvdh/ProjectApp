@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,7 +44,21 @@ public class ShowplaylistActivity extends AppCompatActivity implements VideoRequ
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(ShowplaylistActivity.this, ProfileActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void gotVideos(ArrayList<String> videos) {
+        Log.d("gotVideos", "gotVideos");
 //        ArrayList<String> videoIds = new ArrayList<>();
 //        for (int i = 0; i<videos.size(); i++) {
 //            VideoItem thisVideo = videos.get(i);

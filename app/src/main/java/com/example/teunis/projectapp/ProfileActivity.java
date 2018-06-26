@@ -1,6 +1,8 @@
 package com.example.teunis.projectapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -8,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -81,6 +85,29 @@ public class ProfileActivity extends AppCompatActivity {
         else {
             momentsText.setText(stringMoments);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        Intent pastIntent = getIntent();
+//        String lastActivity = (String) pastIntent.getSerializableExtra("lastActivity");
+//        try {
+//            Class newClass = Class.forName(lastActivity);
+//            Activity newActivity = (Activity) newClass.newInstance();
+//            Intent intent = new Intent(ProfileActivity.this, Class.forName(lastActivity));
+//            startActivity(intent);
+//        } catch (ClassNotFoundException e) {
+//
+//        }
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 
 //    @Override

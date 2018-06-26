@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -76,6 +78,19 @@ public class PlaylistActivity extends YouTubeBaseActivity {
 
         youtubeView.initialize("AIzaSyAI9dTBMA_2el8NlVSVjCLECXEoeyhdhNc", initListener);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(PlaylistActivity.this, ProfileActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
     }
 
     public void stopPlaylist(View view) {

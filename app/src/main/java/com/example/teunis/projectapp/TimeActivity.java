@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -76,6 +78,26 @@ public class TimeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(TimeActivity.this, ProfileActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
     public void minutesFilled(View view) {
         float minutesFloat = 0;
         TextView time = findViewById(R.id.editTime);
@@ -98,10 +120,10 @@ public class TimeActivity extends AppCompatActivity {
         }
     }
 
-    public void profileClicked(View view) {
-        Intent intent = new Intent(TimeActivity.this, ProfileActivity.class);
-        startActivity(intent);
-    }
+//    public void profileClicked(View view) {
+//        Intent intent = new Intent(TimeActivity.this, ProfileActivity.class);
+//        startActivity(intent);
+//    }
 }
 
 

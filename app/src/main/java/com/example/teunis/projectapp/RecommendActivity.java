@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,6 +40,19 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
 
 //        ListView channelList = findViewById(R.id.channelList);
 //        channelList.setOnItemClickListener(new RecommendActivity.listItemClickListener());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(RecommendActivity.this, ProfileActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
