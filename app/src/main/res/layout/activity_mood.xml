@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientbg"
+    android:background="@drawable/backgroundwhite"
     tools:context=".MoodActivity">
 
     <TextView
@@ -52,10 +52,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="#ffffff"
+        android:background="@color/colorPrimary"
         android:onClick="moodsGiven"
         android:text="Continue"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
