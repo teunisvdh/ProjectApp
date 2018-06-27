@@ -1,20 +1,17 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.teunis.projectapp.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.google.api.services.youtube.YouTube;
 
 import java.util.ArrayList;
 
@@ -24,9 +21,7 @@ public class PlaylistActivity extends YouTubeBaseActivity {
     YouTubePlayerView youtubeView;
     ArrayList<String> finalIds;
     int orientation;
-    YouTubePlayer youTubePlayerCopy;
     boolean first;
-//    boolean first = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +36,6 @@ public class PlaylistActivity extends YouTubeBaseActivity {
 
         Intent intent = getIntent();
         final ArrayList<CharSequence> finalVideos = (ArrayList<CharSequence>) intent.getSerializableExtra("finalVideos");
-        Log.d("PlaylistActivity", "finalVideos" + finalVideos);
         finalIds = new ArrayList<>();
 
         for (int i = 0; i < finalVideos.size(); i++) {
@@ -50,16 +44,11 @@ public class PlaylistActivity extends YouTubeBaseActivity {
             finalIds.add(thisVideoId);
         }
 
-        Log.d("PlaylistActivity", "PlaylistActivity");
-        Log.d("First", "First: " + first);
-
-        youtubeView = (YouTubePlayerView) findViewById(R.id.youtubePlayerView);
+        youtubeView = findViewById(R.id.youtubePlayerView);
         initListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                Log.d("success", "success Video");
                 if (first) {
-                    Log.d("videos loaded", "videos loaded");
                     youTubePlayer.loadVideos(finalIds);
                     first = false;
                 }
@@ -72,7 +61,6 @@ public class PlaylistActivity extends YouTubeBaseActivity {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-                Log.d("Error Video", "Error Video");
             }
         };
 
@@ -103,8 +91,6 @@ public class PlaylistActivity extends YouTubeBaseActivity {
     }
 
     public void stopPlaylist(View view) {
-        Log.d("stopPlayList", "STOP STOP STOP STOP STOP STOP STOP STOP STOP");
         finish();
-//        youtubeView.initialize("AIzaSyAI9dTBMA_2el8NlVSVjCLECXEoeyhdhNc", initListener);
     }
 }

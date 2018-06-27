@@ -1,4 +1,4 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,10 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.teunis.projectapp.Items.ChannelItem;
+import com.example.teunis.projectapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChannelAdapter extends ArrayAdapter<ChannelItem> {
     public ChannelAdapter(@NonNull Context context, int resource, @NonNull ArrayList<ChannelItem> objects) {

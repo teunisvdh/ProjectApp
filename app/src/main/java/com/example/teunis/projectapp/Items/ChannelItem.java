@@ -1,4 +1,4 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Items;
 
 import java.io.Serializable;
 

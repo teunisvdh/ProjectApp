@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundwhite"
-    tools:context=".ShowplaylistActivity">
+    tools:context=".Activities.ShowplaylistActivity">
 
     <ImageButton
         android:id="@+id/startPlaylistButton"

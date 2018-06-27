@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundwhite"
-    tools:context=".MoodActivity">
+    tools:context=".Activities.MoodActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -21,11 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/minutesMood"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <LinearLayout
@@ -67,7 +71,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="5dp"
         android:text="Minutes available"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/continueMood"
         app:layout_constraintEnd_toEndOf="parent" />

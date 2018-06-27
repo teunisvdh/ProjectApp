@@ -1,17 +1,20 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.teunis.projectapp.Adapters.ChannelAdapter;
+import com.example.teunis.projectapp.Items.ChannelItem;
+import com.example.teunis.projectapp.Requests.ChannelRequest;
+import com.example.teunis.projectapp.R;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -26,8 +29,6 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend);
 
-        Log.d("RecommendActivity", "RecommendActivity");
-
         Intent intent = getIntent();
         minutes = (float) intent.getSerializableExtra("timeInput");
         ArrayList moods = (ArrayList) intent.getSerializableExtra("moods");
@@ -37,9 +38,6 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
 
         ChannelRequest whatChannel = new ChannelRequest(this);
         whatChannel.getChannels(this, moods);
-
-//        ListView channelList = findViewById(R.id.channelList);
-//        channelList.setOnItemClickListener(new RecommendActivity.listItemClickListener());
     }
 
     @Override
@@ -66,13 +64,8 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
 
     @Override
     public void gotChannels(ArrayList<ChannelItem> channels) {
-//        Log.d("channelinfo", "channelsinfo:" + channels);
-//        String channelString = TextUtils.join(", ", channels);
-//        TextView channelText = findViewById(R.id.channelText);
-//        channelText.setText("Channels: " + channelString);
         finalChannels = new ArrayList<ChannelItem>();
         if (channels.size() > 5) {
-            Log.d("if loop", "channels size bigger than five" + channels);
             for (int i = 0; i < 5; i++) {
                 Random random = new Random();
                 int index = random.nextInt(channels.size());
@@ -85,7 +78,6 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
             }
         }
         else {
-            Log.d("else", "else" + channels);
             for (int i = 0; i < 5; i++) {
                 ChannelItem thisChannel = channels.get(i);
                 finalChannels.add(thisChannel);
@@ -93,9 +85,6 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
                 ListView listChannel = findViewById(R.id.channelList);
                 listChannel.setAdapter(channelAdapter);
             }
-//        ChannelAdapter channelAdapter = new ChannelAdapter(this, R.layout.item_channel, finalChannels);
-//        ListView listChannel = findViewById(R.id.channelList);
-//        listChannel.setAdapter(channelAdapter);
         }
     }
 
@@ -104,22 +93,6 @@ public class RecommendActivity extends AppCompatActivity implements ChannelReque
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
         toast.show();
     }
-
-//    public class listItemClickListener implements AdapterView.OnItemClickListener {
-//        @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//            Log.d("channelItems", "channelItems" + finalChannels);
-//            ChannelItem deletedChannel = (ChannelItem) parent.getItemAtPosition(position);
-//            if (finalChannels.contains(deletedChannel)) {
-//                Log.d("Contains", "CONTAINS CHANNEL");
-//                finalChannels.remove(deletedChannel);
-//            }
-//            else {
-//                Log.d("Contains", "DOESN'T CONTAIN CHANNEL");
-//                finalChannels.add(deletedChannel);
-//            }
-//        }
-//    }
 
     public void continueRecommend(View view) {
         Intent intent = new Intent(RecommendActivity.this, ShowplaylistActivity.class);

@@ -1,4 +1,4 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Requests;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,16 +8,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.SearchListResponse;
+import com.example.teunis.projectapp.Items.ChannelItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class VideoRequest implements Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -38,32 +35,24 @@ public class VideoRequest implements Response.Listener<JSONObject>, Response.Err
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Log.d("onErrorResponse", "onErrorResponse");
         String errorResponse = error.getMessage();
         activity.gotVideosError(errorResponse);
     }
 
     @Override
     public void onResponse(JSONObject response) {
-        Log.d("ONRESPONSE VIDEOREQUEST", "ONRESPONSE VIDEOREQUEST 123");
-        Log.d("onResponse", "onResponse" + response);
-//        ArrayList<String> channels = new ArrayList<>();
         try {
             JSONArray videoArray = response.getJSONArray("items");
-            Log.d("JSONArray", "JSONArray: " + videoArray);
 
             for (int i = 0; i < videoArray.length(); i++) {
-                Log.d("loop begin", "begin loop");
                 JSONObject content = videoArray.getJSONObject(i);
                 JSONObject id = content.getJSONObject("id");
                 String url = id.getString("videoId");
                 videos.add(url);
-                Log.d("loop third", "begin third" + url);
             }
         } catch (JSONException e) {
             Log.d("JSONException", "JSONException");
         }
-        Log.d("gotVideos in request:", "gotVideos" + videos);
 
         count = count + 1;
         if (count == finalChannelsSize) {
@@ -72,7 +61,6 @@ public class VideoRequest implements Response.Listener<JSONObject>, Response.Err
     }
 
     public void getVideos(Callback activity, ArrayList finalChannels) {
-        Log.d("getVideos", "getVideos");
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
         finalChannelsSize = finalChannels.size();

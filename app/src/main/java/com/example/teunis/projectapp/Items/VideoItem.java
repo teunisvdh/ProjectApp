@@ -1,4 +1,4 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Items;
 
 public class VideoItem {
     public String id, description, channel, title, image;

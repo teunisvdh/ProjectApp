@@ -1,18 +1,22 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.teunis.projectapp.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +43,7 @@ public class MoodActivity extends AppCompatActivity {
         TextView minutesMood = findViewById(R.id.minutesMood);
         minutesMood.setText("Minutes available: " + minutesString);
 
-        LinearLayout allMoods = (LinearLayout) findViewById(R.id.linearLayout);
+        LinearLayout allMoods = findViewById(R.id.linearLayout);
 
         if (stringMoods.equals("")) {
             TextView emptyText = new TextView(this);
@@ -49,18 +53,29 @@ public class MoodActivity extends AppCompatActivity {
         else {
             for (int i = 0; i < listMoods.size(); i++) {
                 String thisMood = listMoods.get(i);
-                CheckBox check = new CheckBox(this);
+                final CheckBox check = new CheckBox(this);
                 check.setText(thisMood);
                 check.setTextSize(18);
+                check.setHeight(150);
+                check.setBackgroundColor(0x4DE52C2C);
+                check.setGravity(Gravity.CENTER);
+                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(0, 8, 0, 8);
+                check.setLayoutParams(params);
                 check.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean check = ((CheckBox) view).isChecked();
+                        boolean checked = ((CheckBox) view).isChecked();
                         String text = (String) ((CheckBox) view).getText();
-                        if (check) {
+                        if (checked) {
                             selectedMoods.add(text);
+                            check.setBackgroundColor(0xFFE52C2C);
+                            check.setTextColor(0xFFFFFFFF);
                         } else if (selectedMoods.contains(text)) {
                             selectedMoods.remove(text);
+                            check.setBackgroundColor(0x4DE52C2C);
+                            check.setTextColor(0xFF000000);
+
                         }
                     }
                 });

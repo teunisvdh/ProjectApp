@@ -1,4 +1,4 @@
-package com.example.teunis.projectapp;
+package com.example.teunis.projectapp.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,10 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.teunis.projectapp.R;
+import com.example.teunis.projectapp.Items.VideoItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class VideoAdapter extends ArrayAdapter<VideoItem> {
     public VideoAdapter(@NonNull Context context, int resource, @NonNull ArrayList<VideoItem> objects) {

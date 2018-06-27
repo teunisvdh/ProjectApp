@@ -12,25 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TimeActivity"
+            android:name=".Activities.TimeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".MoodActivity"
+            android:name=".Activities.MoodActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RecommendActivity"
+            android:name=".Activities.RecommendActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ShowplaylistActivity"
+            android:name=".Activities.ShowplaylistActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".PlaylistActivity" />
+        <activity android:name=".Activities.PlaylistActivity" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activities.ProfileActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme"
             android:screenOrientation="portrait" >
             <intent-filter>
