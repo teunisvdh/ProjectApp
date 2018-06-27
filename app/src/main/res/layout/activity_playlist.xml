@@ -15,7 +15,7 @@
         android:background="@android:color/transparent"
         android:onClick="stopPlaylist"
         android:scaleType="centerCrop"
-        android:src="@drawable/buttonstop"
+        android:src="@drawable/redstopbutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

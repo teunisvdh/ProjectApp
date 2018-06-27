@@ -51,9 +51,18 @@ public class ShowplaylistActivity extends AppCompatActivity implements VideoRequ
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(ShowplaylistActivity.this, ProfileActivity.class);
-        startActivity(intent);
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.profileMenu:
+                Intent intent = new Intent(ShowplaylistActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.homeMenu:
+                Intent homeIntent = new Intent(ShowplaylistActivity.this, TimeActivity.class);
+                startActivity(homeIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

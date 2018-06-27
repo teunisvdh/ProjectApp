@@ -22,7 +22,7 @@
         android:id="@+id/editTime"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="90dp"
         android:background="@color/colorTextbox"
         android:ems="10"
         android:inputType="number"
@@ -46,18 +46,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutMoments"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/editTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutMoments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/editTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"></LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

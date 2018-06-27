@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -83,7 +84,8 @@ public class ProfileActivity extends AppCompatActivity {
             momentsText.setText("No moments defined.");
         }
         else {
-            momentsText.setText(stringMoments);
+            String momentsNotation = stringMoments.replace("=", ": ");
+            momentsText.setText(momentsNotation);
         }
     }
 
@@ -159,6 +161,10 @@ public class ProfileActivity extends AppCompatActivity {
 //            moods.add(thisMood);
 //            view.setBackgroundColor(0xFF00FF00);
 //        }
+        else if (thisMood.equals("")) {
+            Toast toast = Toast.makeText(this, "Fill in a mood.", Toast.LENGTH_SHORT);
+            toast.show();
+        }
         else {
             moods.add(thisMood);
             view.setBackgroundColor(0xFF00FF00);
@@ -204,10 +210,12 @@ public class ProfileActivity extends AppCompatActivity {
 //                mapMoments.put("No moments defined.", 0);
 //            }
             view.setBackgroundColor(0xFFFF0000);
-        } else if (mapMoments.containsKey(thisMoment)) {
-            mapMoments.remove(thisMoment);
-            mapMoments.put(thisMoment, timeMoment);
-            view.setBackgroundColor(0xFF00FF00);
+        } else if (thisMoment.equals("") || timeMomentString.equals("")) {
+            Toast toast = Toast.makeText(this, "Fill in a moment and time.", Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (!timeMomentString.equals("") && timeMoment < 10) {
+            Toast toast = Toast.makeText(this, "Time input must be 10 minutes or higher.", Toast.LENGTH_SHORT);
+            toast.show();
         } else {
             mapMoments.put(thisMoment, timeMoment);
             view.setBackgroundColor(0xFF00FF00);

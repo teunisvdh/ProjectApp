@@ -39,7 +39,18 @@ public class VideoAdapter extends ArrayAdapter<VideoItem> {
 
         titleVideo.setText(video.title);
         titleChannel.setText(video.channel);
-        lengthVideo.setText(Float.toString(video.duration));
+
+        float durationSeconds = video.duration % 1 * 60;
+        String secondsString = String.format("%.00f", durationSeconds);
+        if (secondsString.length() == 1) {
+            secondsString = "0" + secondsString;
+        }
+        float durationMinutes = video.duration - (video.duration % 1);
+        String minutesString = String.format("%.00f", durationMinutes);
+        if (minutesString.length() == 1) {
+            minutesString = "0" + minutesString;
+        }
+        lengthVideo.setText(minutesString + "m " + secondsString + "s");
 
         Picasso.get().load(video.image).into(imageVideo);
 

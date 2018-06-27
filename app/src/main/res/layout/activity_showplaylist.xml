@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/buttonplay" />
+        app:srcCompat="@drawable/redplaybutton" />
 
     <TextView
         android:id="@+id/textView4"
@@ -37,8 +37,8 @@
         android:id="@+id/timeTestView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:layout_marginBottom="10dp"
+        android:text="Total time"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/startPlaylistButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +48,8 @@
         android:id="@+id/listPlaylistShow"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/timeTestView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

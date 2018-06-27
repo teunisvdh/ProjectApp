@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,9 +77,18 @@ public class MoodActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(MoodActivity.this, ProfileActivity.class);
-        startActivity(intent);
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.profileMenu:
+                Intent intent = new Intent(MoodActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.homeMenu:
+                Intent homeIntent = new Intent(MoodActivity.this, TimeActivity.class);
+                startActivity(homeIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -88,21 +98,15 @@ public class MoodActivity extends AppCompatActivity {
         startActivity(getIntent());
     }
 
-//    public void moodClicked(View view) {
-////        boolean check = ((CheckBox) view).isChecked();
-////        String text = (String) ((CheckBox) view).getText();
-////        if (check) {
-////            selectedMoods.add(text);
-////        }
-////        else if (selectedMoods.contains(text)){
-////            selectedMoods.remove(text);
-////        }
-////    }
-
     public void moodsGiven(View view) {
-        Intent intent = new Intent(MoodActivity.this, RecommendActivity.class);
-        intent.putStringArrayListExtra("moods", selectedMoods);
-        intent.putExtra("timeInput", minutes);
-        startActivity(intent);
+        if (selectedMoods.size() == 0) {
+            Toast toast = Toast.makeText(this, "Select at least 1 mood.", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            Intent intent = new Intent(MoodActivity.this, RecommendActivity.class);
+            intent.putStringArrayListExtra("moods", selectedMoods);
+            intent.putExtra("timeInput", minutes);
+            startActivity(intent);
+        }
     }
 }

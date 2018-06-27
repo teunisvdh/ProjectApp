@@ -80,7 +80,7 @@ public class TimeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.time_menu, menu);
         return true;
     }
 
@@ -109,12 +109,12 @@ public class TimeActivity extends AppCompatActivity {
         }
         else {
             minutesFloat = Float.parseFloat(minutesString);
-            if (minutesFloat > 0) {
+            if (minutesFloat >= 10) {
                 Intent intent = new Intent(TimeActivity.this, MoodActivity.class);
                 intent.putExtra("timeInput", minutesFloat);
                 startActivity(intent);
             } else {
-                Toast toast = Toast.makeText(this, "Time input must be higher than 0 minutes.", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this, "Time input must be 10 minutes or higher.", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }

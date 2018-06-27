@@ -88,9 +88,18 @@ public class PlaylistActivity extends YouTubeBaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(PlaylistActivity.this, ProfileActivity.class);
-        startActivity(intent);
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.profileMenu:
+                Intent intent = new Intent(PlaylistActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.homeMenu:
+                Intent homeIntent = new Intent(PlaylistActivity.this, TimeActivity.class);
+                startActivity(homeIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void stopPlaylist(View view) {

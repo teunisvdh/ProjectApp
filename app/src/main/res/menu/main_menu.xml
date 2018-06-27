@@ -3,9 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu"
+        android:id="@+id/homeMenu"
         android:checkable="false"
-        android:icon="@drawable/buttonprofile"
+        android:icon="@drawable/homecircle"
+        android:title=""
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/profileMenu"
+        android:checkable="false"
+        android:icon="@drawable/profilecircle"
         android:title=""
         app:showAsAction="always" />
 
