@@ -1,8 +1,8 @@
 /* ShowplaylistActivity shows the user the generated playlist. For each five channels, 10 videos will
  * be put in a list. This activity chooses random videos from this list If a video doesn't fit into
-  * the time available, it will go to a random next one until the end of the list. If no other video
-  * fits, the playlist is final.
-  */
+ * the time available, it will go to a random next one until the end of the list. If no other video
+ * fits, the playlist is final.
+ */
 
 package com.example.teunis.projectapp.Activities;
 

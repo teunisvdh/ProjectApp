@@ -1,4 +1,4 @@
-/* VideoRequest is a request class for retrieving YouTube video information. For each retrieved id
+/* VideoInfoRequest is a request class for retrieving YouTube video information. For each retrieved id
  * it starts a JSON query for retrieving information. For each video a VideoItem will be created.
  * This item will be added to a list of videos to choose from for the playlist.
  */
