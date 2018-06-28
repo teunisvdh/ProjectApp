@@ -1,4 +1,4 @@
-# VideBreak 
+# VideoBreak 
 
 ## Summary 
 **App name**: VideoBreak
