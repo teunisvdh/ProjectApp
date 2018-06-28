@@ -1,9 +1,10 @@
 # REPORT
 
 ## Summary 
-Everyday people have some time left between activities. However, watching a movie most of the times takes too long to pass the time, but the time is too long to keep staring out of the window. A tool that creates entertainment for just exactly the time you have to pass is needed.
+Everyday you will have have some time left between activities and you don't know what to do. However, watching a movie most of the times takes too long to pass the time, but the available time is too much to keep staring out of the window. A tool that creates entertainment for exactly the time you have to pass is needed.
 
-VideoBreak will assure that you can watch a personalised YouTube playlist while traveling, waiting for someone, lunch and many more activities. THe dureation won't exceed the time you have.
+Solution
+VideoBreak will assure that you can watch a personalised YouTube playlist while traveling, waiting for someone, lunch and many more activities. The duration won't exceed the time you have.
 
 ![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/SummaryApp.jpg) 
 
@@ -83,3 +84,4 @@ I solved the problem with a loop and not retrieving videos longer than one hour.
 - As stated above, the VideoInfoRequest class was added. Also a SplashActivity was added. 
 - The planning was to include a login screen with Firebase and storing all data on Firebase. Someone advised me to use SharedPreferences instead, because it is much easier to use. 
 - I also added a ChannelItem and ChannelAdapter to show the user wich channels will be used to retrieve videos from. 
+- The last important change I made is that the app can be used for all moments instead of just traveling. This is because I found out that I wanted to use the app more often not traveling than traveling. 
