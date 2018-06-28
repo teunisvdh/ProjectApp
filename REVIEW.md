@@ -5,6 +5,13 @@
 **Date:** 28-6-2018
 
 **Current points:**
+- comments: 3
+- names: 3
+- formatting: 3
+- organization: 4
+- flow: 2
+- idiom: 3
+- structure: 3 
 
 
 **Things to change:**
