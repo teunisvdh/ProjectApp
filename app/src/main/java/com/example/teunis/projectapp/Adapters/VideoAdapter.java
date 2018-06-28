@@ -1,3 +1,6 @@
+/* VideoAdapter is an adapter for creating list items for the ShowPlayListActivity.
+ */
+
 package com.example.teunis.projectapp.Adapters;
 
 import android.content.Context;

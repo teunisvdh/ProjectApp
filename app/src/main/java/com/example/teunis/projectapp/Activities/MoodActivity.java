@@ -1,3 +1,7 @@
+/* MoodActivity gives the user the possibility to choose one or multiple moods/interests
+ * for starting a YouTube query to obtain channels.
+ */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.content.Context;
@@ -50,7 +54,10 @@ public class MoodActivity extends AppCompatActivity {
             emptyText.setText("No moods defined yet");
             allMoods.addView(emptyText);
         }
+
         else {
+
+            // make a clickable TextView for all moods (dynamically)
             for (int i = 0; i < listMoods.size(); i++) {
                 String thisMood = listMoods.get(i);
                 final CheckBox check = new CheckBox(this);
@@ -59,7 +66,8 @@ public class MoodActivity extends AppCompatActivity {
                 check.setHeight(150);
                 check.setBackgroundColor(0x4DE52C2C);
                 check.setGravity(Gravity.CENTER);
-                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams
+                        (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 params.setMargins(0, 8, 0, 8);
                 check.setLayoutParams(params);
                 check.setOnClickListener(new View.OnClickListener() {

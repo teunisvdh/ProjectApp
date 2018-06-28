@@ -1,3 +1,9 @@
+/* ShowplaylistActivity shows the user the generated playlist. For each five channels, 10 videos will
+ * be put in a list. This activity chooses random videos from this list If a video doesn't fit into
+  * the time available, it will go to a random next one until the end of the list. If no other video
+  * fits, the playlist is final.
+  */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.content.Intent;
@@ -121,19 +127,9 @@ public class ShowplaylistActivity extends AppCompatActivity implements VideoRequ
             }
         }
 
-        ArrayList<String> minutesOfVideos = new ArrayList<>();
-        ArrayList<String> channelsOfVideos = new ArrayList<>();
-
-        float totalTime = 0;
-        for (int i = 0; i < finalPlaylist.size(); i++) {
-            VideoItem thisVideo = finalPlaylist.get(i);
-            String durationString = Float.toString(thisVideo.duration);
-            minutesOfVideos.add(durationString);
-            totalTime = totalTime + thisVideo.duration;
-            String videoChannel = thisVideo.channel;
-            channelsOfVideos.add(videoChannel);
-        }
         TextView timeTestView = findViewById(R.id.timeTestView);
+
+        // convert duration (float) to a string and show in View
         float durationSeconds = totalDuration % 1 * 60;
         String secondsString = String.format("%.00f", durationSeconds);
         if (secondsString.length() == 1) {

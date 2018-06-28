@@ -1,3 +1,7 @@
+/* TimeActivity let's the user choose a maximum time for the playlist. A user can select
+ * a moment or input a different time in a textbox.
+ */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.content.Context;
@@ -34,7 +38,7 @@ public class TimeActivity extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("sharedMoments", Context.MODE_PRIVATE);
         String stringMoments = preferences.getString("moments", "");
-        final LinearLayout allMoments = (LinearLayout) findViewById(R.id.linearLayoutMoments);
+        final LinearLayout allMoments = findViewById(R.id.linearLayoutMoments);
 
         if (stringMoments.equals("")) {
             TextView textEmpty = new TextView(this);
@@ -46,11 +50,12 @@ public class TimeActivity extends AppCompatActivity {
             ArrayList<String> listMoments = new ArrayList<>(Arrays.asList(stringMoments.split(", ")));
             for (int i = 0; i < listMoments.size(); i++) {
                 String moment = listMoments.get(i);
-                String[] splitted = moment.split("=");
-                Integer duration = Integer.parseInt(splitted[1]);
-                mapMoments.put(splitted[0], duration);
+                String[] split = moment.split("=");
+                Integer duration = Integer.parseInt(split[1]);
+                mapMoments.put(split[0], duration);
             }
 
+            // make a clickable TextView for all moments (dynamically)
             for (Map.Entry<String, Integer> entry : mapMoments.entrySet()) {
                 String thisMoment = entry.getKey();
                 final TextView text = new TextView(this);
@@ -58,7 +63,8 @@ public class TimeActivity extends AppCompatActivity {
                 text.setTextSize(18);
                 text.setHeight(150);
                 text.setGravity(Gravity.CENTER);
-                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams
+                        (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 params.setMargins(0, 8, 0, 8);
                 text.setLayoutParams(params);
                 text.setBackgroundColor(0x4DE52C2C);
@@ -114,12 +120,12 @@ public class TimeActivity extends AppCompatActivity {
         }
         else {
             float minutesFloat = Float.parseFloat(minutesString);
-            if (minutesFloat >= 10) {
+            if (minutesFloat >= 10 && minutesFloat <= 180) {
                 Intent intent = new Intent(TimeActivity.this, MoodActivity.class);
                 intent.putExtra("timeInput", minutesFloat);
                 startActivity(intent);
             } else {
-                Toast toast = Toast.makeText(this, "Time input must be 10 minutes or higher.", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this, "Time input must be between 10 and 180 minutes.", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }

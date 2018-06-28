@@ -1,3 +1,7 @@
+/* ChannelItem is a class for storing information about a YouTube channel:
+ * name of the channel, description, url of the channel image and url/id of the channel.
+ */
+
 package com.example.teunis.projectapp.Items;
 
 import java.io.Serializable;

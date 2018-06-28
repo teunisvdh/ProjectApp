@@ -1,3 +1,6 @@
+/* ChannelAdapter is an adapter for creating list items for the RecommendActivity.
+ */
+
 package com.example.teunis.projectapp.Adapters;
 
 import android.content.Context;

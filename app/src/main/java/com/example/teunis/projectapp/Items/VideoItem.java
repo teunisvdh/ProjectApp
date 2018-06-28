@@ -1,3 +1,8 @@
+/* VideoItem is a class for storing information about a YouTube video:
+ * id of the video, description, corresponding YouTube channel, title of the video, url of the
+ * thumbnail and duration (float) of the video.
+ */
+
 package com.example.teunis.projectapp.Items;
 
 public class VideoItem {

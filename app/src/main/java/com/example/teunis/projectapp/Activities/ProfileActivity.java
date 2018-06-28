@@ -1,3 +1,7 @@
+/* ProfileActivity can be accessed via the menu. Here, a user can add moods or moments. These are stored
+ * with SharedPreferences, allowing to obtain them after closing the app.
+ */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.app.Activity;
@@ -27,6 +31,7 @@ import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    // Moods (String) and moments (String + integer time) will be stored in SharedPreferences
     ArrayList<String> moods;
     Map<String, Integer> mapMoments;
 
@@ -90,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addDelete(final View view) {
+    public void addDeleteMood(final View view) {
         EditText moodAddDelete = findViewById(R.id.editText);
         String thisMood = moodAddDelete.getText().toString();
         if (moods.contains(thisMood)) {
@@ -141,8 +146,8 @@ public class ProfileActivity extends AppCompatActivity {
         } else if (thisMoment.equals("") || timeMomentString.equals("")) {
             Toast toast = Toast.makeText(this, "Fill in a moment and time.", Toast.LENGTH_SHORT);
             toast.show();
-        } else if (!timeMomentString.equals("") && timeMoment < 10) {
-            Toast toast = Toast.makeText(this, "Time input must be 10 minutes or higher.", Toast.LENGTH_SHORT);
+        } else if (!timeMomentString.equals("") && timeMoment < 10 || timeMoment > 180) {
+            Toast toast = Toast.makeText(this, "Time input must be between 10 and 180 minutes.", Toast.LENGTH_SHORT);
             toast.show();
         } else {
             mapMoments.put(thisMoment, timeMoment);
@@ -159,6 +164,8 @@ public class ProfileActivity extends AppCompatActivity {
             momentsText.setText(momentsString);
         }
         SharedPreferences.Editor editor = getSharedPreferences("sharedMoments", MODE_PRIVATE).edit();
+
+        // Moments will be converted to a string and stored
         editor.putString("moments", momentsString);
         editor.apply();
         momentAddDelete.setText("");

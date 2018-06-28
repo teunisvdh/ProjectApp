@@ -1,3 +1,8 @@
+/* PlaylistActivity is the activity containing a YouTube Android Player. The playlist will be loaded
+ * into the player. Video's can be viewed, paused and skipped. Rotating the screen will result in a
+ * full screen experience.
+ */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.content.Intent;
@@ -6,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.teunis.projectapp.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -61,6 +67,8 @@ public class PlaylistActivity extends YouTubeBaseActivity {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+                Toast toast = Toast.makeText(PlaylistActivity.this, "A problem occurred with initializing the YouTube player.", Toast.LENGTH_SHORT);
+                toast.show();
             }
         };
 

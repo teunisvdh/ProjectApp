@@ -1,3 +1,7 @@
+/* SplashActivity generates a splash screen containing the app logo. It automatically
+ * goes on to TimeActivity after 1.5 seconds.
+ */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.content.Intent;

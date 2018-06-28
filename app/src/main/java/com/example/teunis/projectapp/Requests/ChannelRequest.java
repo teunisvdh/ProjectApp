@@ -1,3 +1,8 @@
+/* ChannelRequest is a request class for retrieving YouTube channels. For each mood it starts a
+ * JSON query for retrieving a maximum of 10 channels associated with the mood. For each channel
+ * it created a ChannelItem.
+ */
+
 package com.example.teunis.projectapp.Requests;
 
 import android.content.Context;
@@ -72,7 +77,7 @@ public class ChannelRequest implements Response.Listener<JSONObject>, Response.E
 
         for (int i = 0; i < moodsSize; i++) {
             String mood = moods.get(i).toString();
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=relevance&q="
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q="
                     + mood + "&relevanceLanguage=en&type=channel&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
             queue.add(jsonObjectRequest);
         }

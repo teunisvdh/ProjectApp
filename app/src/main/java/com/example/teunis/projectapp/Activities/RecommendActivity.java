@@ -1,3 +1,7 @@
+/* RecommendActivity shows a list of five recommended YouTube channels. These five will be chosen
+ * randomly from a list with five channels for each given mood.
+ */
+
 package com.example.teunis.projectapp.Activities;
 
 import android.content.Intent;
@@ -21,7 +25,7 @@ import java.util.Random;
 
 public class RecommendActivity extends AppCompatActivity implements ChannelRequest.Callback {
 
-    ArrayList<ChannelItem> finalChannels = new ArrayList<ChannelItem>();
+    ArrayList<ChannelItem> finalChannels;
     float minutes;
 
     @Override

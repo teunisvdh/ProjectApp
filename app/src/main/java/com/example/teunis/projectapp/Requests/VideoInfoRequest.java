@@ -1,3 +1,8 @@
+/* VideoRequest is a request class for retrieving YouTube video information. For each retrieved id
+ * it starts a JSON query for retrieving information. For each video a VideoItem will be created.
+ * This item will be added to a list of videos to choose from for the playlist.
+ */
+
 package com.example.teunis.projectapp.Requests;
 
 import android.content.Context;
@@ -54,11 +59,12 @@ public class VideoInfoRequest implements Response.Listener<JSONObject>, Response
                 String channel = snippet.getString("channelTitle");
                 String id = content.getString("id");
 
+                // convert string time from API (structure ...M, ...S or ...M...S) to float
                 JSONObject contentDetails = content.getJSONObject("contentDetails");
                 String durationString = contentDetails.getString("duration");
                 durationString = durationString.replace("PT", "");
-                float minutes = 0;
-                float seconds = 0;
+                float minutes;
+                float seconds;
                 if (durationString.contains("S") && durationString.contains("M")) {
                     durationString = durationString.replace("S", "");
                     String[] separatedDurationString = durationString.split("M");
@@ -91,7 +97,8 @@ public class VideoInfoRequest implements Response.Listener<JSONObject>, Response
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
         String videoIdsString = TextUtils.join(", ", videoIds);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/videos?part=snippet,%20contentDetails&id=" + videoIdsString + "&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/videos?part=snippet,%20contentDetails&id="
+                + videoIdsString + "&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
         queue.add(jsonObjectRequest);
     }
 }

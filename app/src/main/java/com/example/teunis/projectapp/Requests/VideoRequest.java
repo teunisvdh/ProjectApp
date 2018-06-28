@@ -1,3 +1,7 @@
+/* VideoRequest is a request class for retrieving YouTube video-ids. For each channel it starts a
+ * JSON query for retrieving a maximum of 10 videos. With the id an information request can be started.
+ */
+
 package com.example.teunis.projectapp.Requests;
 
 import android.content.Context;
@@ -68,7 +72,8 @@ public class VideoRequest implements Response.Listener<JSONObject>, Response.Err
         for (int i = 0; i < finalChannelsSize; i++) {
             ChannelItem channel = (ChannelItem) finalChannels.get(i);
             String channelId = channel.url;
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + channelId + "&maxResults=10&order=viewCount&type=video&videoDuration=medium&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="
+                    + channelId + "&maxResults=10&order=viewCount&type=video&videoDuration=medium&key=AIzaSyBAd7Nkwxa8G5J4cdB6jy2gh6iI-goGpX4", null, this, this);
             queue.add(jsonObjectRequest);
         }
     }
