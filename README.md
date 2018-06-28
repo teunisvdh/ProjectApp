@@ -5,7 +5,7 @@
 
 **Author**: Teunis van der Hofstad 
 
-Time to kill? Use VideoBreak! VideoBreak is the app that let's you create a video playlist based on your interests and time available. 
+Do you have time to kill? Use VideoBreak! VideoBreak is the app that let's you create a video playlist based on your interests and time available. 
 
 ## Problem Statement 
 Everyday millions of people travel by train to go to work or school. 
