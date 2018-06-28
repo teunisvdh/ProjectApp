@@ -5,7 +5,7 @@ Everyday people have some time left between activities. However, watching a movi
 
 VideoBreak will assure that you can watch a personalised YouTube playlist while traveling, waiting for someone, lunch and many more activities. THe dureation won't exceed the time you have.
 
-![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/KnipselTime.PNG) 
+![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/SummaryApp.jpg) 
 
 ## Short overview functionality
 The project consists of 14 classes: 7 activities, 2 adapter classes, 2 item classes and 3 request classes. The request classes assure that the right data is given to the activities. 
