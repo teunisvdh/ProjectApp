@@ -10,7 +10,7 @@ VideoBreak will assure that you can watch a personalised YouTube playlist while 
 ## Short overview functionality
 The project consists of 14 classes: 7 activities, 2 adapter classes, 2 item classes and 3 request classes. The request classes assure that the right data is given to the activities. 
 
-![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/OverviewAppFinal.jpg)
+![Alt text](https://github.com/teunisvdh/ProjectApp/blob/master/doc/OverviewApp.jpg)
 
 ## Project details
 ### Activities
@@ -20,15 +20,15 @@ The project consists of 14 classes: 7 activities, 2 adapter classes, 2 item clas
 
 **ProfileActivity:**
 
-- ProfileActivity can be accessed via the menu. Here, a user can add moods or moments. These are stored with SharedPreferences, allowing to obtain them after closing the app.
+- ProfileActivity can be accessed via the menu. Here, a user can add moods or moments. These are stored with SharedPreferences, allowing to obtain them after closing the app. 
  
 **TimeActivity:**
 
-- TimeActivity let's the user choose a maximum time for the playlist. A user can select a moment or input a different time in a textbox.
+- TimeActivity let's the user choose a maximum time for the playlist. A user can select a moment or input a different time in a textbox. Moments can be edited in ProfileActivity. Time must be between 10 and 180 minutes. 
 
 **MoodActivity:**
 
-- MoodActivity gives the user the possibility to choose one or multiple moods/interests for starting a YouTube query to obtain channels.
+- MoodActivity gives the user the possibility to choose one or multiple moods/interests for starting a YouTube query to obtain channels. The moods can be edited in ProfileActivity. 
 
 **RecommendActivity:**
 
@@ -36,11 +36,11 @@ The project consists of 14 classes: 7 activities, 2 adapter classes, 2 item clas
 
 **ShowplaylistActivity:**
 
-- ShowplaylistActivity shows the user the generated playlist. For each five channels, 10 videos will be put in a list. This activity chooses random videos from this list If a video doesn't fit into the time available, it will go to a random next one until the end of the list. If no other video fits, the playlist is final.
+- ShowplaylistActivity shows the user the generated playlist. It implements the callback for retrieving the video id's and retrieving the information about the videos. For each five channels, 10 videos will be put in a list. This activity chooses random videos from this list. If a video doesn't fit into the time available, it will go to a random next one until the end of the list. If no other video fits, the playlist is final.
 
 **PlaylistActivity:**
 
-- PlaylistActivity is the activity containing a YouTube Android Player. The playlist will be loaded into the player. Video's can be viewed, paused and skipped. Rotating the screen will result in a full screen experience.
+- PlaylistActivity is the activity containing a YouTube Android Player. The playlist (a list of video id's) will be loaded into the player. Video's can be viewed, paused and skipped. Rotating the screen will result in a full screen experience.
 
 ### Adapters
 **ChannelAdapter:**
