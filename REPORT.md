@@ -87,5 +87,5 @@ I solved the problem with a loop and not retrieving videos longer than one hour.
 - The last important change I made is that the app can be used for all moments instead of just traveling. This is because I found out that I wanted to use the app more often not traveling than traveling. 
 
 ## Future work
-- If I have had more time to work on the app I would have used a google login. This allows the user to include his favourite channels and will assure that a video will be added to the history. 
+- If I had more time to work on the app I would have used a google login. This allows the user to include his favourite channels and will assure that a video will be added to the history. 
 - I would also have used a better API-query for retrieving the channels. Although the preference language is set on English, sometimes channels using other foreign languages will be retrieved.
