@@ -5,7 +5,7 @@
 
 **Author**: Teunis van der Hofstad 
 
-VideoTraveler is for everyone that doesn't know what to do while traveling by train. It can create a video playlist based on your interests and travel time. 
+Time to kill? Use VideoBreak! VideoBreak is the app that let's you create a video playlist based on your interests and time available. 
 
 ## Problem Statement 
 Everyday millions of people travel by train to go to work or school. 
